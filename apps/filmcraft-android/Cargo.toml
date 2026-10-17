@@ -1,0 +1,32 @@
+[package]
+name = "filmcraft-android"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+crate-type = ["cdylib"]
+path = "src/lib.rs"
+
+[dependencies]
+filmcraft-ui-egui = { workspace = true }
+filmcraft-engine = { workspace = true }
+filmcraft-project = { workspace = true }
+filmcraft-render = { workspace = true }
+filmcraft-time = { workspace = true }
+filmcraft-gpu = { workspace = true }
+eframe = { workspace = true, default-features = false, features = ["wgpu", "android-native-activity"] }
+egui = { workspace = true }
+android-activity = { version = "0.6", features = ["native-activity"] }
+log = { workspace = true }
+android_logger = "0.14"
+jni = "0.21"
+
+[package.metadata.android]
+package = "ai.storyteller.filmcraft"
+apk_name = "FilmCraft"
+app_name = "FilmCraft"
+label = "FilmCraft"
+target_sdk_version = 34
+min_sdk_version = 26
+build_targets = ["aarch64-linux-android"]
